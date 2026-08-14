@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #F4EFE6;
+  --color-cream: #FBF7F0;
+  --color-ink: #1C1915;
+  --color-teal: #1F6F69;
+  --color-teal-deep: #0C4A45;
+  --color-gold: #C4A35A;
+  --color-coral: #C45C4A;
+  --color-sage: #D7E4D8;
+  --color-line: #E4DCCE;
+  --shadow-card: 0 1px 2px rgba(28, 25, 21, 0.04), 0 8px 24px rgba(28, 25, 21, 0.05);
+  --shadow-lift: 0 18px 50px rgba(28, 25, 21, 0.16);
+}
+
+html, body, #root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+input, select, textarea, button {
+  font-size: 16px;
+}
+
+@media (min-width: 640px) {
+  input, select, textarea, button {
+    font-size: 14px;
+  }
+}
+
+body.is-print-page,
+body.is-print-page #root {
+  background: #e8e2d6;
+  min-height: 100%;
+}
+
+.print-app {
+  min-height: 100vh;
+}
+
+.print-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fbf7f0;
+  border-bottom: 1px solid #e4dcce;
+}
+
+.print-toolbar-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.print-sheet {
+  background: #fff;
+  color: #1c1915;
+  box-shadow: 0 10px 40px rgba(28, 25, 21, 0.12);
+  overflow: hidden;
+}
+
+.a4-sheet {
+  width: 210mm;
+  max-width: calc(100% - 32px);
+  min-height: 297mm;
+  margin: 20px auto 40px;
+  padding: 16mm 16mm 18mm;
+  box-sizing: border-box;
+}
+
+.thermal-sheet {
+  width: 80mm;
+  max-width: calc(100% - 24px);
+  margin: 20px auto 40px;
+  padding: 4mm 3.5mm 6mm;
+  box-sizing: border-box;
+}
+
+.print-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.print-head.is-thermal {
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.print-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.is-thermal .print-logo {
+  width: 36px;
+  height: 36px;
+}
+
+.print-hospital {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.is-thermal .print-hospital {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.print-meta {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #5c564c;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.is-thermal .print-meta {
+  font-size: 10px;
+}
+
+.print-subtitle {
+  margin: 8px 0 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+}
+
+.is-thermal .print-subtitle {
+  font-family: ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.print-range {
+  text-align: center;
+  font-size: 12px;
+  color: #5c564c;
+  margin: 8px 0 0;
+}
+
+.print-rule {
+  border-top: 1px dashed #c9c0b0;
+  margin: 12px 0;
+}
+
+.print-kv {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+  padding: 3px 0;
+}
+
+.is-thermal .print-kv,
+.thermal-sheet .print-kv {
+  font-size: 11px;
+}
+
+.print-k {
+  color: #6b6458;
+  flex-shrink: 0;
+}
+
+.print-v {
+  text-align: right;
+  word-break: break-word;
+}
+
+.print-amount-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 0 2px;
+  font-size: 13px;
+}
+
+.print-amount-box strong {
+  font-family: var(--font-display);
+  font-size: 28px;
+}
+
+.thermal-sheet .print-amount-box strong {
+  font-size: 16px;
+  font-family: ui-monospace, Menlo, monospace;
+}
+
+.print-notes {
+  font-size: 12px;
+  color: #5c564c;
+  margin: 8px 0 0;
+  word-wrap: break-word;
+}
+
+.print-thanks {
+  font-size: 12px;
+  text-align: center;
+  margin: 0;
+}
+
+.print-foot {
+  margin-top: 18px;
+  font-size: 10px;
+  color: #8a8276;
+  text-align: center;
+}
+
+.print-muted { font-size: 13px; color: #6b6458; text-align: center; padding: 24px 0; }
+.print-error { font-size: 13px; color: #c45c4a; text-align: center; padding: 24px 0; }
+
+.print-totals {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.print-totals > div,
+.print-totals .print-net {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.print-net {
+  font-weight: 600;
+  border-top: 1px solid #e4dcce;
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  margin-top: 10px;
+  table-layout: auto;
+}
+
+.print-table th,
+.print-table td {
+  border-bottom: 1px solid #ece6da;
+  padding: 5px 4px;
+  text-align: left;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+.print-table th {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #6b6458;
+}
+
+.print-table .num { text-align: right; white-space: nowrap; }
+.print-table tr.strong td { font-weight: 700; border-top: 1px solid #1c1915; }
+
+.thermal-sheet .print-table { font-size: 10px; }
+.thermal-sheet .print-totals { font-size: 11px; }
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d5ccbb; border-radius: 99px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+@media print {
+  .no-print { display: none !important; }
+
+  html, body, #root, body.is-print-page, body.is-print-page #root, .print-app {
+    background: #fff !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  .print-sheet,
+  .a4-sheet,
+  .thermal-sheet {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  .print-table tr,
+  .print-head,
+  .print-amount-box,
+  .print-totals {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-foot {
+    break-inside: avoid;
+  }
+
+  thead { display: table-header-group; }
+  tfoot { display: table-footer-group; }
+
+  @page {
+    margin: 12mm;
+  }
+}
