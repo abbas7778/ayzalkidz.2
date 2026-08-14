@@ -1,0 +1,48 @@
+{
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://opfejzkhlfhposjxuhip.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_5dCUE08NZZVQBvsLv0VgGw_PVaR9Q_6",
+    "VITE_SUPABASE_URL": "https://opfejzkhlfhposjxuhip.supabase.co",
+    "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_5dCUE08NZZVQBvsLv0VgGw_PVaR9Q_6",
+    "VITE_SUPABASE_ANON_KEY": "sb_publishable_5dCUE08NZZVQBvsLv0VgGw_PVaR9Q_6",
+    "VITE_GOOGLE_CLIENT_ID": "1065078894672-rmp5kp8vfjns5rn9kp5psfp16g691043.apps.googleusercontent.com",
+    "VITE_GOOGLE_AUTH_PROXY": "https://designarena.ai/auth/google/callback",
+    "FULLSTACK_PROJECT_REF": "opfejzkhlfhposjxuhip",
+    "FULLSTACK_RESTORE_API_URL": "https://designarena.ai/api/fullstack-restore",
+    "SUPABASE_SERVICE_ROLE_KEY": "sb_secret_AlJMgzTiDeAen7aJQ8qLjA_izAmhvhJ"
+  },
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        },
+        {
+          "key": "Service-Worker-Allowed",
+          "value": "/"
+        }
+      ]
+    },
+    {
+      "source": "/manifest.webmanifest",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/manifest+json"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, must-revalidate"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/((?!api/|sw\\.js|manifest\\.webmanifest|icons/|images/|favicon\\.svg|logo\\.png).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
