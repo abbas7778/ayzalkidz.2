@@ -1,0 +1,2 @@
+-- Run this in the Supabase SQL Editor for project vplviowhxtasjgpptzsd
+-- Same script is available on the login screen via Copy SQL

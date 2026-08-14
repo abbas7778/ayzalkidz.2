@@ -1,0 +1,2 @@
+-- Copy of Ayzal Kidz Care Hospital schema. Run in the Supabase SQL Editor.
+-- See src/lib/schemaSql.js for the same script.
